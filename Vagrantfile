@@ -16,9 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network "private_network", type: "dhcp"
   config.ssh.forward_agent = true
-  config.vm.synced_folder "lab/", "/home/vagrant/lab/"
   if SALT_REPO
-    config.vm.synced_folder SALT_REPO, "/home/vagrant/lab/salt/"
+    config.vm.synced_folder SALT_REPO, "/home/vagrant/salt/"
   end
 
   # speed up provisioning by enabling caching
