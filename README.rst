@@ -1,5 +1,5 @@
 *******
-saltlab
+saltbox
 *******
 
 Provisioning scripts to set up a virtual machine with Salt for development.
