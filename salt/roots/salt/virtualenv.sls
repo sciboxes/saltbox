@@ -54,3 +54,27 @@ salt_pip:
     - editable: {{ pillar['salt_repo'] }}
     - require:
       - virtualenv: base_virtualenv
+
+
+salt_minion:
+  file.managed:
+    - name: {{ home }}/env/etc/salt/minion
+    - source: salt://minion
+    - user: {{ pillar['user'] }}
+    - group: {{ pillar['user'] }}
+    - mode: 644
+    - makedirs: True
+    - require:
+      - virtualenv: base_virtualenv
+
+
+salt_master:
+  file.managed:
+    - name: {{ home }}/env/etc/salt/master
+    - source: salt://master
+    - user: {{ pillar['user'] }}
+    - group: {{ pillar['user'] }}
+    - mode: 644
+    - makedirs: True
+    - require:
+      - virtualenv: base_virtualenv
